@@ -11,4 +11,4 @@ The below picture is illustration of MiL2D dataset with 15 keypoints of skeleton
 ![MiL2D_dataset](/images/MiL2D_dataset.jpg)
 
 ## Installation: How to install MonKit
-The configuration MonKit documentation is divided into two parts. MonKit-Action recognition refer to [action_recognition_doc.md](https://github.com/MonKitFudan/MonKit/blob/main/action_recognition_doc.md). MonKit-Posture estimation refer to [posture_estimation_doc.md](https://github.com/MonKitFudan/MonKit/blob/main/posture_estimation_doc.md).
+The configuration MonKit documentation is divided into two parts. MonKit-Action recognition refers to [action_recognition_doc.md](https://github.com/MonKitFudan/MonKit/blob/main/action_recognition_doc.md). MonKit-Posture estimation refers to [posture_estimation_doc.md](https://github.com/MonKitFudan/MonKit/blob/main/posture_estimation_doc.md).
