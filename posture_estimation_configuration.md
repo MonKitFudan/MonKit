@@ -35,3 +35,6 @@ The code to run the quick test is as follows.
 ```
 python /.../tools/test.py --cfg /.../experiments/monkey/hrnet/w32_256x192_adam_Ir1e-3_joints_14.yaml TEST.MODEL_FILE /.../output/monkey_joints_14/pose_hrnet/w32_256x192_adam_Ir1e-3_joints_14/model_best.pth
 ```
+
+## Demo
+![Pose_demo]
