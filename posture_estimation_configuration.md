@@ -37,4 +37,5 @@ python /.../tools/test.py --cfg /.../experiments/monkey/hrnet/w32_256x192_adam_I
 ```
 
 ## Demo
+The results of running MonKit are as follows.
 ![Pose_demo](/images/Pose_demo.jpg)
