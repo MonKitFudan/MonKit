@@ -6,11 +6,11 @@ All experiments were implemented in PyTorch 1.7.1 for deep models with Nvidia Qu
 The CPU is Intel Xeon Gold 5220R (2.2GHz, 24 Cores). The OS is Ubuntu 18.04.
 
 ### Environment configuration
-If using pip install, run the following code.
+If using pip install, run the following code. The monkit_pose.txt is under the env folder.
 ```
 pip install -r monkit_pose.txt
 ```
-If using conda install, run the following code.
+If using conda install, run the following code. The monkit_pose.yaml is under the env folder.
 ```
 conda env create -f monkit_pose.yaml
 ```
