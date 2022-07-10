@@ -17,7 +17,7 @@ conda env create -f monkit_pose.yaml
 
 ## Code
 This code is based on the [HRNet](https://github.com/HRNet/HigherHRNet-Human-Pose-Estimation) codebase.
-### Train
+### Training
 If you want to perform high-precision training, run the following code.
 ```
 python /.../tools/train.py --cfg .../experiments/monkey/hrnet/w48_256x256_adam_lr1e-3_joints_14.yaml
@@ -26,14 +26,19 @@ If you want to run faster, run the following code.
 ```
 python /.../tools/train.py --cfg /.../experiments/monkey/hrnet/w32_256x192_adam_Ir1e-3_joints_14.yaml
 ```
-### Test
-The code to run the high precision test is as follows.
+### Validation
+The code to run the high precision Validation is as follows.
 ```
 python /.../tools/test.py --cfg /.../experiments/monkey/hrnet/w48_256x256_adam_lr1e-3_joints_14.yaml TEST.MODEL_FILE /.../output/monkey_joints_14/pose_hrnet/w48_256x256_adam_lr1e-3_joints_14/model_best.pth
 ```
-The code to run the quick test is as follows.
+The code to run the quick Validation is as follows.
 ```
 python /.../tools/test.py --cfg /.../experiments/monkey/hrnet/w32_256x192_adam_Ir1e-3_joints_14.yaml TEST.MODEL_FILE /.../output/monkey_joints_14/pose_hrnet/w32_256x192_adam_Ir1e-3_joints_14/model_best.pth
+```
+### Testing
+If you have a new video, you can run the following code for inference.
+```
+python /.../inference.py --video 'video_name'
 ```
 
 ## Demo
