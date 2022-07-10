@@ -37,4 +37,4 @@ python /.../tools/test.py --cfg /.../experiments/monkey/hrnet/w32_256x192_adam_I
 ```
 
 ## Demo
-![Pose_demo]
+![Pose_demo](/images/Pose_demo.jpg)
