@@ -9,4 +9,6 @@ By using the MiL2D dataset, the monkey bone recognition task was performed for t
 
 ![image](https://user-images.githubusercontent.com/58841760/192129000-0700959c-5a09-4cab-bd06-c954014b761b.png)
 
-##
+This study is based on TSM: Temporal Shift Module for Efficient Video Understanding.(***Lin, J., Gan, C., & Han, S. (2019). TSM: Temporal shift module for efficient video understanding. In Proceedings of the IEEE/CVF International Conference on Computer Vision.***).
+
+## 
