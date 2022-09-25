@@ -3,10 +3,8 @@
 **MaskTrack R-CNN was used to track monkey’s position.**
 
 # Monkey Track
-
+The picture below is the result of tracking the monkey.***Yang, L., Fan, Y., & Xu, N. (2019). Video instance segmentation. In Proceedings of the IEEE/CVF International Conference on Computer Vision (pp. 5188-5197).***
 ![image](https://user-images.githubusercontent.com/58841760/192137415-4bb54ce9-7c90-41c4-85fe-6eb92e74c19b.png)
-
-The representative images with bounding box of MaskTrack R-CNN tracking and 2D skeleton.
 
 ## Installation
 ### Experimental setup
