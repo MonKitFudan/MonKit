@@ -8,6 +8,8 @@ The specific network block diagram is implemented (Figure a). The tag of the cat
 
 We utilized the Grad-Cam++ 27, a method of feature visualization of CNN model predictions, to construct heat maps shown in Figure b. The heat map reflected the different contributions (attention) in different areas for the results of classification. The weighted combination of the positive partial derivatives from last convolutional layer in the feature maps was used to provide specific class score for corresponding label.
 
+This study is based on TSM: Temporal Shift Module for Efficient Video Understanding.(***Lin, J., Gan, C., & Han, S. (2019). TSM: Temporal shift module for efficient video understanding. In Proceedings of the IEEE/CVF International Conference on  Computer Vision.***).
+
 ## Installation: how to install MonKit-Action Recognition
 ### Experimental setup
 All experiments were implemented in PyTorch 1.7.1 for deep models with Nvidia Quadro RTX8000 GPUs (Memory: 48GB). 
