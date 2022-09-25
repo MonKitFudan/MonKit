@@ -9,6 +9,7 @@ accuracy in the MiL2D dataset and OpenMonkeyStudio dataset.**
 
 ![image](https://user-images.githubusercontent.com/58841760/192137415-4bb54ce9-7c90-41c4-85fe-6eb92e74c19b.png)
 
+The representative images with bounding box of MaskTrack R-CNN tracking and 2D skeleton.
 
 This study is based on TSM: Temporal Shift Module for Efficient Video Understanding.(***Lin, J., Gan, C., & Han, S. (2019). TSM: Temporal shift module for efficient video understanding. In Proceedings of the IEEE/CVF International Conference on  Computer Vision.***).
 
