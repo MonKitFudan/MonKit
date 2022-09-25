@@ -23,5 +23,7 @@ The CPU is Intel Xeon Gold 5220R (2.2GHz, 24 Cores). The OS is Ubuntu 18.04.
 
 
 ### Testing
-```python demo/demo_mot_vis.py configs/vis/masktrack_rcnn/masktrack_rcnn_r50_fpn_12e_youtubevis2019.py --input /home3/lcx/CODE/DATA/MONKEY/DISEASE_ANALYSIS/data/AUTISM/AUTISM_004/AUTISM_004_5_sample.mp4 --output /home1/lyr2/LCX_CODE/mmtracking-master/LCX/AUTISM_004_5.mp4 --video 'AUTISM_004_5' --device 'cuda:1'```
+```
+python demo/demo_mot_vis.py configs/vis/masktrack_rcnn/masktrack_rcnn_r50_fpn_12e_youtubevis2019.py --input /home3/lcx/CODE/DATA/MONKEY/DISEASE_ANALYSIS/data/AUTISM/AUTISM_004/AUTISM_004_5_sample.mp4 --output /home1/lyr2/LCX_CODE/mmtracking-master/LCX/AUTISM_004_5.mp4 --video 'AUTISM_004_5' --device 'cuda:1'
+```
 
