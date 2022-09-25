@@ -7,6 +7,8 @@ Depressive behavior has also been identified in a sizeable minority of female pa
 
 ![image](https://user-images.githubusercontent.com/58841760/192136875-01854fb6-04cb-4645-9262-47c4875a4035.png)
 
+This study is based on TSM: Temporal Shift Module for Efficient Video Understanding.(***Lin, J., Gan, C., & Han, S. (2019). TSM: Temporal shift module for efficient video understanding. In Proceedings of the IEEE/CVF International Conference on  Computer Vision.***).
+
 ## Installation
 ### Experimental setup
 All experiments were implemented in PyTorch 1.7.1 for deep models with Nvidia Quadro RTX8000 GPUs (Memory: 48GB). 
