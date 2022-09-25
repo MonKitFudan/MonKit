@@ -7,4 +7,17 @@ Depressive behavior has also been identified in a sizeable minority of female pa
 
 ![image](https://user-images.githubusercontent.com/58841760/192136875-01854fb6-04cb-4645-9262-47c4875a4035.png)
 
-##
+## Installation
+### Experimental setup
+All experiments were implemented in PyTorch 1.7.1 for deep models with Nvidia Quadro RTX8000 GPUs (Memory: 48GB). 
+The CPU is Intel Xeon Gold 5220R (2.2GHz, 24 Cores). The OS is Ubuntu 18.04.
+
+
+### Environment configuration
+
+
+## Code Usage
+
+
+### Train
+
