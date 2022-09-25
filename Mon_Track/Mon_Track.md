@@ -1,9 +1,6 @@
 # Monkey Track
 
-**MaskTrack R-CNN was used to track monkey’s position. The rectangle information of the monkey’s position was intercepted and 
-input to the HRNet network to obtain the heatmap. The mean square error (MSE) loss function was used to compare the target 
-to get loss. Finally, the 15 bone points were transformed into x and y space coordinates. The accuracy has reached 98.8% 
-accuracy in the MiL2D dataset and OpenMonkeyStudio dataset.**
+**MaskTrack R-CNN was used to track monkey’s position.**
 
 # Monkey Track
 
@@ -11,7 +8,7 @@ accuracy in the MiL2D dataset and OpenMonkeyStudio dataset.**
 
 The representative images with bounding box of MaskTrack R-CNN tracking and 2D skeleton.
 
-This study is based on TSM: Temporal Shift Module for Efficient Video Understanding.(***Lin, J., Gan, C., & Han, S. (2019). TSM: Temporal shift module for efficient video understanding. In Proceedings of the IEEE/CVF International Conference on  Computer Vision.***).
+This study is based on MaskTrack R-CNN
 
 ## Installation
 ### Experimental setup
@@ -25,5 +22,6 @@ The CPU is Intel Xeon Gold 5220R (2.2GHz, 24 Cores). The OS is Ubuntu 18.04.
 ## Code Usage
 
 
-### Train
+### Testing
+```python demo/demo_mot_vis.py configs/vis/masktrack_rcnn/masktrack_rcnn_r50_fpn_12e_youtubevis2019.py --input /home3/lcx/CODE/DATA/MONKEY/DISEASE_ANALYSIS/data/AUTISM/AUTISM_004/AUTISM_004_5_sample.mp4 --output /home1/lyr2/LCX_CODE/mmtracking-master/LCX/AUTISM_004_5.mp4 --video 'AUTISM_004_5' --device 'cuda:1'```
 
