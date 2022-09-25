@@ -7,6 +7,8 @@ Depressive behavior has also been identified in a sizeable minority of female pa
 
 ![image](https://user-images.githubusercontent.com/58841760/192136875-01854fb6-04cb-4645-9262-47c4875a4035.png)
 
+Huddle, sit, stand, stereotyped pattern behavior and head down posture detected by MonKit in WT in cage, WT in test and MECP2 mutant monkeys. (A) Diagram of height calculation for the postures of huddle, sit and stand. (B-D) Statistics of time spent in the category of Huddle (B), Sit (C) and Stand (D). Each dot represents an individual monkey with averaged time spent in each video clip. (E) A series of representative images of stereotyped behavior of pacing left and right. (F) Statistics of the stereotyped behavior in the groups of WT in cage, WT in test and MECP2 mutant monkeys. (G) Representative images of normal and head down behavior and the diagram of chin and neck bone points. (H) Statistics of the head down posture in the groups of WT in cage, WT in test and ***MECP2*** mutant monkeys. Each dot represents an individual monkey with averaged time spent in each video clip.
+
 This study is based on TSM: Temporal Shift Module for Efficient Video Understanding.(***Lin, J., Gan, C., & Han, S. (2019). TSM: Temporal shift module for efficient video understanding. In Proceedings of the IEEE/CVF International Conference on  Computer Vision.***).
 
 ## Installation
