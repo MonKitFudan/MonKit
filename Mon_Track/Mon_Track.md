@@ -8,8 +8,6 @@
 
 The representative images with bounding box of MaskTrack R-CNN tracking and 2D skeleton.
 
-This study is based on MaskTrack R-CNN
-
 ## Installation
 ### Experimental setup
 All experiments were implemented in PyTorch 1.7.1 for deep models with Nvidia Quadro RTX8000 GPUs (Memory: 48GB). 
@@ -29,8 +27,10 @@ pip install .
 ```
 
 ## Code
-If you have a new video, you can run the following code to track the monkey.
+This study is based on [MaskTrack R-CNN](https://github.com/youtubevos/MaskTrackRCNN)
+
 ### Testing
+If you have a new video, you can run the following code to track the monkey.
 ```
 python demo/demo_mot_vis.py configs/vis/masktrack_rcnn/masktrack_rcnn_r50_fpn_12e_youtubevis2019.py --input .../video.mp4 --output video_output.mp4 --video 'video_name' --device 'cuda:1'
 ```
