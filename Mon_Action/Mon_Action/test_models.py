@@ -29,7 +29,7 @@ parser.add_argument('-j', '--workers', default=1, type=int, metavar='N',
                     help='number of data loading workers (default: 8)')
 
 # for true test
-parser.add_argument('--test_list', type=str, default="/home1/lyr/CODE/DATA/PiL14/file_list/pil12_val_list.txt")
+parser.add_argument('--test_list', type=str, default="val_list.txt")
 parser.add_argument('--csv_file', type=str, default=None)
 
 parser.add_argument('--softmax', default=False, action="store_true", help='use softmax')
@@ -85,9 +85,8 @@ def parse_shift_option_from_log_name(log_name):
     else:
         return False, None, None
 
-#['checkpoint/TSM_pil13_RGB_resnet50_shift8_blockres_avg_segment8_e50/ckpt.pth.tar']
 weights_list = args.weights.split(',')
-#[8]
+
 test_segments_list = [int(s) for s in args.test_segments.split(',')]
 
 assert len(weights_list) == len(test_segments_list)
@@ -276,12 +275,7 @@ for i, data_label_pairs in enumerate(zip(*data_iter_list)):
         for i_coeff in range(len(this_rst_list)):
             this_rst_list[i_coeff] *= coeff_list[i_coeff]
         ensembled_predict = sum(this_rst_list) / len(this_rst_list)
-        # filename = "/home/fair/Desktop/xzf/tsm/two_stream_result/ucfse/array_rgb_"+str(i)+".txt"
-        # f=open(filename,"a")
-        # f.close()
-        # np.savetxt(filename, ensembled_predict, fmt='%f', delimiter=',')
-        # ensembled_predict = np.loadtxt("/home/fair/Desktop/xzf/tsm/two_stream_result/ucfse/array_rgb_"+str(i)+".txt", delimiter=',')
-        # ensembled_predict += 1.5*np.loadtxt("/home/fair/Desktop/xzf/tsm/two_stream_result/ucfse/array_flow_"+str(i)+".txt", delimiter=',')
+        
         for p, g in zip(ensembled_predict, this_label.cpu().numpy()):
             output.append([p[None, ...], g])
         cnt_time = time.time() - proc_start_time
