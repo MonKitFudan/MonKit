@@ -1,10 +1,3 @@
-# Code for "TSM: Temporal Shift Module for Efficient Video Understanding"
-# arXiv:1811.08383
-# Ji Lin*, Chuang Gan, Song Han
-# {jilin, songhan}@mit.edu, ganchuang@csail.mit.edu
-
-# Notice that this file has been modified to support ensemble testing
-
 import argparse
 import time
 import cv2
@@ -54,9 +47,9 @@ parser.add_argument('--pretrain', type=str, default='imagenet')
 
 parser.add_argument('--num_class', type=int, default=10)
 parser.add_argument('--arc', type=str, default='resnest50')
-parser.add_argument('--root_path', type=str, default='/home3/lcx/CODE/DATA/MONKEY/DISEASE_ANALYSIS/data_flow/f_6_18/done_8_5')
-parser.add_argument('--excel_path', type=str, default='/home3/lcx/CODE/BEHAVIOUR/HRNET_TSN_EXCEL_6')
-parser.add_argument('--video_list', type=str, default='AUTISM_001_1')
+parser.add_argument('--root_path', type=str, default='../data_flow/')
+parser.add_argument('--excel_path', type=str, default='../path')
+parser.add_argument('--video_list', type=str, default='videoname')
 args = parser.parse_args()
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "0，1"
@@ -92,15 +85,12 @@ def parse_shift_option_from_log_name(log_name):
     else:
         return False, None, None
 
-
-#weights_list = ['checkpoint/TSM_pil9_RGB_resnest50_shift8_blockres_avg_segment8_e50_dense_2021_12_05/ckpt.pth.tar',
-#                'checkpoint/TSM_pil9_Flow_resnest50_shift8_blockres_avg_segment8_e50_dense_2021_11_28/ckpt.pth.tar']
 weights_list = ['checkpoint/TSM_pil10_RGB_resnest50_shift8_blockres_avg_segment8_e50_dense_2022_01_22/ckpt.pth.tar',
                 'checkpoint/TSM_pil10_Flow_resnest50_shift8_blockres_avg_segment8_e50_dense_2022_01_22/ckpt.pth.tar']
 this_weights = weights_list[0]
 test_segments_list = [args.test_segments]
 this_test_segments = test_segments_list[0]
-# assert len(weights_list) == len(test_segments_list)
+
 if args.coeff is None:
     coeff_list = [1] * len(weights_list)
 else:
@@ -126,15 +116,7 @@ modality_list.append('RGB')
 modality_list_flow.append('Flow')
 num_class=args.num_class
 print('=> shift: {}, shift_div: {}, shift_place: {}'.format(is_shift, shift_div, shift_place))
-# net_rgb = TSN(num_class, this_test_segments if is_shift else 1, 'RGB',
-#           base_model=this_arch,
-#           consensus_type=args.crop_fusion_type,
-#           img_feature_dim=args.img_feature_dim,
-#           pretrain=args.pretrain,
-#           is_shift=is_shift, shift_div=shift_div, shift_place=shift_place,
-#           non_local=False,
-#           )
-print('check',num_class,this_test_segments,is_shift,this_arch,args.crop_fusion_type,args.img_feature_dim,args.pretrain,is_shift, shift_div,shift_place,'_nl' in this_weights)
+
 net_rgb = TSN(num_class, this_test_segments if is_shift else 1, 'RGB',
               base_model=this_arch,
               consensus_type=args.crop_fusion_type,
@@ -179,7 +161,6 @@ net_rgb.load_state_dict(base_dict)
 checkpoint_flow = torch.load('/home2/lyr/CODE/temporal-shift-module-master/checkpoint/TSM_pil10_Flow_resnest50_shift8_blockres_avg_segment8_e50_dense_2022_01_22/ckpt.pth.tar')#,map_location='cpu'
 checkpoint_flow = checkpoint_flow['state_dict']
 
-# base_dict = {'.'.join(k.split('.')[1:]).replace('.net',''): v for k, v in list(checkpoint_flow.items())}
 base_dict = {'.'.join(k.split('.')[1:]): v for k, v in list(checkpoint_flow.items())}
 
 replace_dict = {'base_model.classifier.weight': 'new_fc.weight',
@@ -289,23 +270,6 @@ def behaviour(num):
     if num == 9:
         return 'StandUp'
 
-'''
-key code
-'''
-
-# font = cv2.FONT_HERSHEY_SIMPLEX
-#
-# beh_rgb = 'null'
-# beh_flow = 'null'
-# beh_two = 'null'
-# cnt_time = 0
-
-
-# fourcc = cv2.VideoWriter_fourcc(*'MJPG')
-
-# videoWriter = cv2.VideoWriter('/Users/amy/PycharmProjects/behaviourAnaApp/show_video/'+videoName+'_result.avi',
-#                               fourcc,30,(width,height))
-
 def computeVar(ran_flow,path):
     var = 0
     for i in ran_flow:
@@ -359,12 +323,7 @@ worksheet4.write(0, 4, label='variance(f)')
 
 i = 0  # test video position
 n = 1  # frame position
-# videoPath = "/Users/amy/PycharmProjects/tsn-pytorch-master/testdata/zhengchang_short.avi"
-# cap = cv2.VideoCapture(videoPath)
-# videoName = videoPath.split('/')[-1].split('.')[0]
-# width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-# height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-# fps = cap.get(cv2.CAP_PROP_FPS)
+
 window = 40
 fps = 30
 ranp_rgb = np.multiply(list(range(8)), 10) + randint(10, size=8) + randint(i * window, i * window + 1, size=8) + 1
@@ -400,33 +359,7 @@ lastvar_2 = 0
 lastvar_3 = 0
 lastvar_4 = 0
 
-#@atexit.register
-# def saveFile():
-#     workbook.save(args.excel_path+"/"+args.video_list+'.xls')
-
 while True:
-    # get a frame
-    # ret, frame = cap.read()
-    # if ret:
-    #     # gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    #     if n > 2:
-    #         cv2.putText(frame, 'RGB_r:  '+beh_rgb, (50, 300),
-    #                     font, 1.2, (255, 255, 255), 1)
-    #         cv2.putText(frame, 'Flow_r:  ' + beh_flow, (50, 360),
-    #                     font, 1.2, (255, 255, 255), 1)
-    #         cv2.putText(frame, 'TS_r:  ' + beh_two, (50, 450),
-    #                     font, 1.2, (0, 0, 255), 2)
-    #         if not cnt_time==0:
-    #             cv2.putText(frame, 'Time:  ' + str(round(cnt_time,2))+'s', (50, 510),
-    #                         font, 1.2, (255, 255, 255), 2)
-    #     cv2.imshow("test", frame)
-    #     # videoWriter.write(frame)
-    #     # & 0xFF is required for a 64-bit system
-    #     if cv2.waitKey(1) & 0xFF == ord('q'):
-    #         break
-    # else:
-    #     break
-    #print('hh',args.root_path+'/'+args.video_list+"/img_" + str(ranp_rgb[-1]).zfill(max_length) + '.jpg')
     if not (os.path.exists(args.root_path+'/'+args.video_list+"/img_" + str(ranp_rgb[-1]).zfill(max_length) + '.jpg') and os.path.exists(args.root_path+'/'+args.video_list+"/flow_x_" + str(ranp_flow[-1]).zfill(max_length) + '.jpg')):
         break
     if i%500==0:
@@ -626,7 +559,7 @@ while True:
         worksheet4.write(e_row_4, 2, label="%02d:%02d" % (divmod(time2 / fps, 60)))
         worksheet4.write(e_row_4, 3, label=duration_4)
         worksheet4.write(e_row_4, 4, label=var_4)
-# ==================================================
+
         cnt_time = time.time() - proc_start_time
         print('video {} done, total {}/{}, average {} sec/video'.format(i, i + 1,
                                                                             total_num,
