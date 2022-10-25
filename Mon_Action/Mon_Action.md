@@ -23,7 +23,7 @@ The CPU is Intel Xeon Gold 5220R (2.2GHz, 24 Cores). The OS is Ubuntu 18.04.
 
 ## Code Usage
 This code is based on the [TSM](https://github.com/mit-han-lab/temporal-shift-module) codebase.
-### Train
+### Training
 Detailed command reference scripts
 
 RGB Train
@@ -42,14 +42,14 @@ python main.py pil13 Flow \
     --batch-size 72 -j 16 --dropout 0.8 --consensus_type=avg --eval-freq=1 \
     --shift --shift_div=8 --shift_place=blockres  --dense_sample
 ```
-### Val
+### Validation
 Detailed command reference scripts.(Note: pil13 refers to dataset)
 ```
 python test_models.py pil13 \
     --weights=checkpoint/TSM_pil14_Flow_resnest50_shift8_blockres_avg_segment8_e50_dense/ckpt.pth.tar \
     --test_segments=8 --batch_size=16 -j 24 --test_crops=3  --twice_sample --crop_fusion_type=avg
 ```
-### Test
+### Testing
 ```
 python tsm_classify.py --video_list 'videoname'
 ```
