@@ -43,7 +43,7 @@ python main.py pil13 Flow \
     --shift --shift_div=8 --shift_place=blockres  --dense_sample
 ```
 ### Val
-Detailed command reference scripts
+Detailed command reference scripts.(Note: pil13 refers to dataset)
 ```
 python test_models.py pil13 \
     --weights=checkpoint/TSM_pil14_Flow_resnest50_shift8_blockres_avg_segment8_e50_dense/ckpt.pth.tar \
