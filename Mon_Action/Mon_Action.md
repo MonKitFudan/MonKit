@@ -18,11 +18,10 @@ All experiments were implemented in PyTorch 1.7.1 for deep models with Nvidia Qu
 The CPU is Intel Xeon Gold 5220R (2.2GHz, 24 Cores). The OS is Ubuntu 18.04.
 
 
-### Environment configuration
-
-
 ## Code Usage
 This code is based on the [TSM](https://github.com/mit-han-lab/temporal-shift-module) codebase.
+
+### Environment configuration
 ### Training
 Detailed command reference scripts
 
